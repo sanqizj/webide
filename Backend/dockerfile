@@ -1,0 +1,10 @@
+FROM ubuntu
+RUN mkdir /workspace/
+RUN apt-get update
+RUN apt-get install -y passwd openssl openssh-server python3
+RUN passwd
+RUN 123456
+RUN 123456
+COPY sshd_config /etc/ssh/sshd_config
+RUN service ssh start
+WORKDIR /workspace/
